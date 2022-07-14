@@ -356,3 +356,7 @@ typedef struct deck_node_s
 
   * GitHub repository: `sorting_algorithms`
   * File: `1000-sort_deck.c`, `deck.h`
+
+## Author:
+    * Florence Wangui
+    
