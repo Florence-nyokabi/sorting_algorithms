@@ -59,8 +59,8 @@ void print_list(const listint_t *list)
 }
 ```
   * Our files `print_array.c` and `print_list.c` (containing the print_array and print_list functions) will be compiled with your functions during the correction.
-  * Please declare the prototype of the functions print_array and print_list in your sort.h header file
-  * Please use the following data structure for doubly linked list:
+  * Please declare the prototype of the functions `print_array` and `print_list` in your `sort.h `header file
+  * Please use the following `data structure` for doubly linked list:
 ```
 /**
  * struct listint_s - Doubly linked list node
@@ -87,7 +87,7 @@ Please, note this format is used for Quiz and Task questions.
   * n + k -> O(n+k)
   …
  ``` 
-Please use the “short” notation (don’t use constants). Example: O(nk) or O(wn) should be written O(n). If an answer is required within a file, all your answers files must have a newline at the end.
+Please use the “short” notation (don’t use constants). Example: `O(nk)` or `O(wn)` should be written `O(n)`. If an answer is required within a file, all your answers files must have a newline at the end.
 
 #### Tests
 Here is a quick tip to help you test your sorting algorithms with big sets of random integers: Random.org
