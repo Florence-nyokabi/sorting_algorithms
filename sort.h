@@ -42,5 +42,7 @@ void sort_deck(deck_node_t **deck);
 
 /* Prototypes for helper functions */
 void swap(int *a, int *b);
+void swap_backward(listint_t *c)
+void swap_forward(listint_t *c)
 
 #endif /* sort.h */
