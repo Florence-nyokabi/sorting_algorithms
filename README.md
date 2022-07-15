@@ -374,5 +374,5 @@ typedef struct deck_node_s
   * File: `1000-sort_deck.c`, `deck.h`
 
 ## Author:
-    [Florence Wangui](https://github.com/Florence-wangui?tab=repositories)
+   [Florence Wangui](https://github.com/Florence-wangui?tab=repositories)
     
