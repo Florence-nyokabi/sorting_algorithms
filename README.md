@@ -234,7 +234,7 @@ Write a function that sorts an array of integers in ascending order using the [H
   * You must implement the `sift-down` heap sort algorithm
   * You’re expected to print the `array` after each time you swap two elements (See example below)
 
-Write in the file 104-O, the big O notations of the time complexity of the Heap sort algorithm, with 1 notation per line:
+Write in the file `104-O`, the big O notations of the time complexity of the Heap sort algorithm, with 1 notation per line:
 
   * in the best case
   * in the average case
@@ -253,7 +253,7 @@ Write a function that sorts an array of integers in ascending order using the [R
   * You must implement the `LSD radix` sort algorithm
   * You can assume that `array` will contain only numbers `>= 0`
   * You are allowed to use `malloc` and `free` for this task
-  * You’re expected to print the array each time you increase your `significant digit`
+  * You’re expected to print the `array` each time you increase your `significant digit`
 
 **Repo:**
 
