@@ -376,5 +376,6 @@ typedef struct deck_node_s
 ## Author:
 
    Florence Wangui
-   [Github](https://github.com/Florence-wangui?tab=repositories)
+   
+  - [Github](https://github.com/Florence-wangui?tab=repositories)
     
