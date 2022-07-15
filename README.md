@@ -90,11 +90,11 @@ Please, note this format is used for Quiz and Task questions.
 Please use the “short” notation (don’t use constants). Example: `O(nk)` or `O(wn)` should be written `O(n)`. If an answer is required within a file, all your answers files must have a newline at the end.
 
 #### Tests
-Here is a quick tip to help you test your sorting algorithms with big sets of random integers: Random.org
+Here is a quick tip to help you test your sorting algorithms with big sets of random integers: [Random.org](https://www.random.org/integer-sets/)
 
 # Tasks
 # 0. Bubble sort
-Write a function that sorts an array of integers in ascending order using the Bubble sort algorithm
+Write a function that sorts an array of integers in ascending order using the [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) algorithm
 
   * Prototype: `void bubble_sort(int *array, size_t size);`
   * You’re expected to print the `array` after each time you swap two elements (See example below)
@@ -111,7 +111,7 @@ Write in the file `0-O`, the big O notations of the time complexity of the Bubbl
   * File: `0-bubble_sort.c`, `0-O`
 
 # 1. Insertion sort
-Write a function that sorts a doubly linked list of integers in ascending order using the Insertion sort algorithm
+Write a function that sorts a doubly linked list of integers in ascending order using the [Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort) algorithm
 
   * Prototype: `void insertion_sort_list(listint_t **list);`
   * You are not allowed to modify the integer n of a node. You have to swap the nodes themselves.
@@ -129,7 +129,7 @@ Write in the file `1-O`, the big O notations of the time complexity of the Inser
   * File: `1-insertion_sort_list.c`, `1-O`
 
 # 3. Quick sort
-Write a function that sorts an array of integers in ascending order using the Quick sort algorithm
+Write a function that sorts an array of integers in ascending order using the [Quick sort](https://en.wikipedia.org/wiki/Quicksort) algorithm
 
   * Prototype: `void quick_sort(int *array, size_t size);`
   * You must implement the `Lomuto` partition scheme.
@@ -149,7 +149,7 @@ Write in the file `3-O`, the big O notations of the time complexity of the Quick
 
 # 4. Shell sort - Knuth Sequence
 
-Write a function that sorts an array of integers in ascending order using the Shell sort algorithm, using the `Knuth sequence`
+Write a function that sorts an array of integers in ascending order using the [Shell sort](https://en.wikipedia.org/wiki/Shellsort) algorithm, using the `Knuth sequence`
 
   * Prototype: `void shell_sort(int *array, size_t size);`
   * You must use the following sequence of intervals (a.k.a the Knuth sequence):
@@ -166,7 +166,7 @@ Write a function that sorts an array of integers in ascending order using the Sh
 
 # 5. Cocktail shaker sort
 
-Write a function that sorts a doubly linked list of integers in ascending order using the Cocktail shaker sort algorithm
+Write a function that sorts a doubly linked list of integers in ascending order using the [Cocktail shaker sort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort) algorithm
 
   * Prototype: `void cocktail_sort_list(listint_t **list);`
   * You are not allowed to modify the integer `n` of a node. You have to swap the nodes themselves.
@@ -185,7 +185,7 @@ Write in the file `101-O`, the big O notations of the time complexity of the Coc
 
 # 6. Counting sort
 
-Write a function that sorts an array of integers in ascending order using the Counting sort algorithm
+Write a function that sorts an array of integers in ascending order using the [Counting sort](https://en.wikipedia.org/wiki/Counting_sort) algorithm
 
   * Prototype: `void counting_sort(int *array, size_t size);`
   * You can assume that `array` will contain only numbers `>= 0`
@@ -205,7 +205,7 @@ Write in the file `102-O`, the big O notations of the time complexity of the Cou
 
 # 7. Merge sort
 
-Write a function that sorts an array of integers in ascending order using the Merge sort algorithm
+Write a function that sorts an array of integers in ascending order using the [Merge sort](https://en.wikipedia.org/wiki/Merge_sort) algorithm
 
   * Prototype: `void merge_sort(int *array, size_t size);`
   * You must implement the top-down merge sort algorithm
@@ -228,7 +228,7 @@ Write in the file `103-O`, the big O notations of the time complexity of the Mer
 
 # 8. Heap sort
 
-Write a function that sorts an array of integers in ascending order using the Heap sort algorithm
+Write a function that sorts an array of integers in ascending order using the [Heap sort](https://en.wikipedia.org/wiki/Heapsort) algorithm
 
   * Prototype: `void heap_sort(int *array, size_t size);`
   * You must implement the `sift-down` heap sort algorithm
@@ -247,13 +247,13 @@ Write in the file 104-O, the big O notations of the time complexity of the Heap 
 
 # 9. Radix sort
 
-Write a function that sorts an array of integers in ascending order using the Radix sort algorithm
+Write a function that sorts an array of integers in ascending order using the [Radix sort](https://en.wikipedia.org/wiki/Radix_sort) algorithm
 
   * Prototype: `void radix_sort(int *array, size_t size);`
   * You must implement the `LSD radix` sort algorithm
   * You can assume that `array` will contain only numbers `>= 0`
   * You are allowed to use `malloc` and `free` for this task
-  * You’re expected to print the array each time you increase your significant digit
+  * You’re expected to print the array each time you increase your `significant digit`
 
 **Repo:**
 
@@ -262,12 +262,12 @@ Write a function that sorts an array of integers in ascending order using the Ra
 
 # 10. Bitonic sort
 
-Write a function that sorts an array of integers in ascending order using the Bitonic sort algorithm
+Write a function that sorts an array of integers in ascending order using the [Bitonic sort](https://en.wikipedia.org/wiki/Bitonic_sorter) algorithm
 
   * Prototype: `void bitonic_sort(int *array, size_t size);`
-  * You can assume that size will be equal to 2^k, where k >= 0 (when array is not NULL …)
+  * You can assume that size will be equal to `2^k`, where `k >= 0` (when `array` is not `NULL` …)
   * You are allowed to use `printf`
-  * You’re expected to print the array each time you swap two elements (See example below)
+  * You’re expected to print the `array` each time you swap two elements (See example below)
   * Output: see example
 
 Write in the file `106-O`, the big O notations of the time complexity of the Bitonic sort algorithm, with 1 notation per line:
@@ -283,7 +283,7 @@ Write in the file `106-O`, the big O notations of the time complexity of the Bit
 
 # 11. Quick Sort - Hoare Partition scheme
 
-Write a function that sorts an array of integers in ascending order using the Quick sort algorithm
+Write a function that sorts an array of integers in ascending order using the [Quick sort](https://en.wikipedia.org/wiki/Quicksort) algorithm
 
   * Prototype: `void quick_sort_hoare(int *array, size_t size);`
   * You must implement the Hoare partition scheme.
@@ -304,8 +304,8 @@ Write in the file `107-O`, the big O notations of the time complexity of the Qui
 # 12. Dealer
 Write a function that sorts a deck of cards.
 
-  * Prototype: void sort_deck(deck_node_t **deck);
-  * You are allowed to use the C standard library function qsort
+  * Prototype: `void sort_deck(deck_node_t **deck)`;
+  * You are allowed to use the C standard library function `qsort`
   * Please use the following data structures:
 ```
 typedef enum kind_e
@@ -343,12 +343,12 @@ typedef struct deck_node_s
     struct deck_node_s *next;
 } deck_node_t;
 ```
-  * You have to push you deck.h header file, containing the previous data structures definition
+  * You have to push you `deck.h` header file, containing the previous data structures definition
   * Each node of the doubly linked list contains a card that you cannot modify. You have to swap the nodes.
-  * You can assume there is exactly 52 elements in the doubly linked list.
+  * You can assume there is exactly `52` elements in the doubly linked list.
   * You are free to use the sorting algorithm of your choice
   * The deck must be ordered:
-    * From Ace to King
+    * From `Ace` to `King`
     * From Spades to Diamonds
     * See example below
 
