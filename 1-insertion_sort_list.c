@@ -1,49 +1,51 @@
+/*
+ * File: 1-insertion_sort_list.c
+ * Auth: Dagem Tsehay
+ */
+
 #include "sort.h"
 
 /**
- * node_swap - swaps two adjecent nodes
- * @left: the left node
- * @right: the right node
+ * swap_nodes - Swap two nodes in a listint_t doubly-linked list.
+ * @h: A pointer to the head of the doubly-linked list.
+ * @n1: A pointer to the first node to swap.
+ * @n2: The second node to swap.
  */
-void node_swap(listint_t *left, listint_t *right)
+void swap_nodes(listint_t **h, listint_t **n1, listint_t *n2)
 {
-	left->next = right->next;
-	right->prev = left->prev;
-
-	left->prev = right;
-	right->next = left;
-
-	if (left->next)
-		left->next->prev = left;
-
-	if (right->prev)
-		right->prev->next = right;
+	(*n1)->next = n2->next;
+	if (n2->next != NULL)
+		n2->next->prev = *n1;
+	n2->prev = (*n1)->prev;
+	n2->next = *n1;
+	if ((*n1)->prev != NULL)
+		(*n1)->prev->next = n2;
+	else
+		*h = n2;
+	(*n1)->prev = n2;
+	*n1 = n2->prev;
 }
+
 /**
- * insertion_sort_list - sorts doubly linked list
- * @list: the list to be sorted
+ * insertion_sort_list - Sorts a doubly linked list of integers
+ *                       using the insertion sort algorithm.
+ * @list: A pointer to the head of a doubly-linked list of integers.
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list, *last = *list;
-	listint_t *temp = NULL;
+	listint_t *iter, *insert, *tmp;
 
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+		return;
 
-	while (current)
+	for (iter = (*list)->next; iter != NULL; iter = tmp)
 	{
-		while (current && current->prev && current->n < (current->prev)->n)
+		tmp = iter->next;
+		insert = iter->prev;
+		while (insert != NULL && iter->n < insert->n)
 		{
-			temp = (current->prev)->prev;
-
-			node_swap(current->prev, current);
-			/* when swapping at the edge */
-			if (!temp)
-				*list = current;
-
-			print_list(*list);
+			swap_nodes(list, &insert, iter);
+			print_list((const listint_t *)*list);
 		}
-		current = last;
-		if (last)
-			last = last->next;
 	}
 }
