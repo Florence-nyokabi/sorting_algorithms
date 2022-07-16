@@ -1,92 +1,49 @@
 #include "sort.h"
-/**
- * swap_backward -swap two nodes right left position
- * @c: list
- *
- **/
-void swap_backward(listint_t *c)
-{
-	listint_t *tmp, *head;
 
-	while (c->prev != NULL)
-	{
-		if (c->n < c->prev->n)
-		{
-			tmp = c->prev->prev;
-			c->prev->next = c->next;
-			c->next = c->prev;
-			c->prev->prev = c;
-			c->prev = tmp;
-			c->next->next->prev = c->next;
-			if (tmp != NULL)
-				tmp->next = c;
-			head = c;
-			while (head->prev != NULL)
-				head = head->prev;
-			print_list(head);
-		}
-		else
-			c = c->prev;
-	}
+/**
+ * node_swap - swaps two adjecent nodes
+ * @left: the left node
+ * @right: the right node
+ */
+void node_swap(listint_t *left, listint_t *right)
+{
+	left->next = right->next;
+	right->prev = left->prev;
+
+	left->prev = right;
+	right->next = left;
+
+	if (left->next)
+		left->next->prev = left;
+
+	if (right->prev)
+		right->prev->next = right;
 }
 /**
- * swap_forward -swap two nodes left rigth position
- * @c: list
- *
- **/
-void swap_forward(listint_t *c)
-{
-	listint_t *tmp, *head;
-
-	tmp = c->prev;
-
-	if (tmp != NULL)
-	{
-		tmp->next = c->next;
-		c->next->prev = tmp;
-	}
-	else
-		c->next->prev = NULL;
-	c->prev = c->next;
-	if (c->next->next != NULL)
-	{
-		c->next = c->next->next;
-		c->prev->next = c;
-		c->next->prev = c;
-	}
-	else
-	{
-		c->next->next = c;
-		c->next = NULL;
-	}
-	head = c;
-	while (head->prev != NULL)
-		head = head->prev;
-	print_list(head);
-	swap_backward(c->prev);
-}
-/**
- * insertion_sort_list -sort a doubly linked list with insert algorithm
- * @list: list
- *
- **/
+ * insertion_sort_list - sorts doubly linked list
+ * @list: the list to be sorted
+ */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *c;
+	listint_t *current = *list, *last = *list;
+	listint_t *temp = NULL;
 
-	if ((list == NULL) || (*list == NULL) || ((*list)->next == NULL))
-		return;
-	c = *list;
 
-	while (c->next != NULL)
+	while (current)
 	{
-		if (c->n > c->next->n)
+		while (current && current->prev && current->n < (current->prev)->n)
 		{
-			swap_forward(c);
+			temp = (current->prev)->prev;
+
+			node_swap(current->prev, current);
+			/* when swapping at the edge */
+			if (!temp)
+				*list = current;
+
+			print_list(*list);
 		}
-		else
-			c = c->next;
+		current = last;
+		if (last)
+			last = last->next;
 	}
-	while ((*list)->prev != NULL)
-		*list = (*list)->prev;
 }
