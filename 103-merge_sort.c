@@ -4,8 +4,8 @@
 
 /**
  * TDMerge - sorts and merges the sub arrays in source
- * @start: starting index (inclusive) for the left sub array
- * @middle: end index (exclusive) for the left sub array and
+ * @start: starting index (inclusive) for left sub array
+ * @middle: end index (exclusive) for left sub array and
  * starting index (inclusive) for the right sub array
  * @end: end index (exclusive) for the right sub array
  * @dest: destination for data
