@@ -1,3 +1,8 @@
+/*
+ * File: 105-radix_sort.c
+ * Auth: Dagem Tsehay
+ */
+
 #include "sort.h"
 
 int get_max(int *array, int size);
