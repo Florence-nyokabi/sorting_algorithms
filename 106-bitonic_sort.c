@@ -1,4 +1,7 @@
 #include "sort.h"
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
 #define UP 0
 #define DOWN 1
 
