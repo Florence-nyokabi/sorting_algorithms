@@ -1,8 +1,6 @@
 #include "sort.h"
 #include <stdlib.h>
 #include <stdio.h>
-
-/* Comparison direction macros for bitonic sort */
 #define UP 0
 #define DOWN 1
 
@@ -16,6 +14,7 @@ typedef enum bool
 	false = 0,
 	true
 } bool;
+
 void swap_ints(int *a, int *b);
 void bitonic_merge(int *array, size_t size, size_t start, size_t seq,
 		char flow);
