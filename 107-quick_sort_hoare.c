@@ -1,8 +1,3 @@
-/*
- * File: 107-quick_sort_hoare.c
- * Auth: Shalom and Yvonne
- */
-
 #include "sort.h"
 
 void swap_ints(int *a, int *b);
