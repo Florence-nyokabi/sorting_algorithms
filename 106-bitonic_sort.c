@@ -1,4 +1,6 @@
 #include "sort.h"
+#include <stdio.h>
+
 /**
  * swap - swaps elements of the array checking the position
  * @array: Array with numbers to be sorted
