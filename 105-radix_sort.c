@@ -1,86 +1,76 @@
-/*
- * File: 105-radix_sort.c
- * Auth: Dagem Tsehay
- */
-
 #include "sort.h"
 
-int get_max(int *array, int size);
-void radix_counting_sort(int *array, size_t size, int sig, int *buff);
-void radix_sort(int *array, size_t size);
-
 /**
- * get_max - Get the maximum value in an array of integers.
- * @array: An array of integers.
- * @size: The size of the array.
+ * radix_sort - sort array with radix method
+ * @array: array to sort
+ * @size: size of the array
  *
- * Return: The maximum integer in the array.
- */
-int get_max(int *array, int size)
-{
-	int max, i;
+ * Return: nothing
+*/
 
-	for (max = array[0], i = 1; i < size; i++)
-	{
-		if (array[i] > max)
-			max = array[i];
-	}
-
-	return (max);
-}
-
-/**
- * radix_counting_sort - Sort the significant digits of an array of integers
- *                       in ascending order using the counting sort algorithm.
- * @array: An array of integers.
- * @size: The size of the array.
- * @sig: The significant digit to sort on.
- * @buff: A buffer to store the sorted array.
- */
-void radix_counting_sort(int *array, size_t size, int sig, int *buff)
-{
-	int count[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	size_t i;
-
-	for (i = 0; i < size; i++)
-		count[(array[i] / sig) % 10] += 1;
-
-	for (i = 0; i < 10; i++)
-		count[i] += count[i - 1];
-
-	for (i = size - 1; (int)i >= 0; i--)
-	{
-		buff[count[(array[i] / sig) % 10] - 1] = array[i];
-		count[(array[i] / sig) % 10] -= 1;
-	}
-
-	for (i = 0; i < size; i++)
-		array[i] = buff[i];
-}
-
-/**
- * radix_sort - Sort an array of integers in ascending
- *              order using the radix sort algorithm.
- * @array: An array of integers.
- * @size: The size of the array.
- */
 void radix_sort(int *array, size_t size)
 {
-	int max, sig, *buff;
+	int i, j, x, y, cantRep, max, div = 1, t = 0;
+	int buckets[10][1000];
 
-	if (array == NULL || size < 2)
+	if (!array || size < 2)
 		return;
 
-	buff = malloc(sizeof(int) * size);
-	if (buff == NULL)
-		return;
+	max = array[0];
+	for (i = 1; i < (int) size; i++)
+		if (array[i] > max)
+			max = array[i];
 
-	max = get_max(array, size);
-	for (sig = 1; max / sig > 0; sig *= 10)
+	for (i = 0; i < 10; ++i)
+		for (j = 0; j < 1000; ++j)
+			buckets[i][j] = -1;
+
+	cantRep = getCantRep(max);
+
+	for (i = 0; i < cantRep; ++i)
 	{
-		radix_counting_sort(array, size, sig, buff);
+		for (j = 0; j < (int) size; ++j)
+		{
+			for (y = 0; buckets[(array[j] / div) % 10][y] != -1; y++)
+				;
+			buckets[(array[j] / div) % 10][y] = array[j];
+		}
+		div = div * 10;
+		t = 0;
+		for (x = 0; x < 10; ++x)
+		{
+			for (y = 0; buckets[x][y] != -1; y++)
+			{
+				array[t] = buckets[x][y];
+				buckets[x][y] = -1;
+				t++;
+			}
+		}
 		print_array(array, size);
 	}
+}
 
-	free(buff);
+/**
+ * getCantRep - Returns the number of digits of the largest number in the array
+ * @num: The largest number
+ *
+ * Return: Number of digits of the num
+*/
+
+int getCantRep(int num)
+{
+	bool flag = true;
+	int cont = 0;
+
+	while (flag)
+	{
+		flag = false;
+		if (num > 0)
+		{
+			num = num / 10;
+			cont++;
+			flag = true;
+		}
+	}
+	return (cont);
 }
