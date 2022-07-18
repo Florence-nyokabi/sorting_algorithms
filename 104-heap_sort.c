@@ -1,8 +1,3 @@
-/*
- * File: 104-heap_sort.c
- * Auth: Dagem Tsehay
- */
-
 #include "sort.h"
 
 void swap_ints(int *a, int *b);
