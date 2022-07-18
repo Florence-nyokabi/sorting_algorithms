@@ -1,7 +1,9 @@
-#include "sort.h"
+/*
+ * File: 1-insertion_sort_list.c
+ * Auth: Flo
+ */
 
-void swap_nodes(listint_t **h, listint_t **n1, listint_t *n2);
-void insertion_sort_list(listint_t **list);
+#include "sort.h"
 
 /**
  * swap_nodes - Swap two nodes in a listint_t doubly-linked list.
