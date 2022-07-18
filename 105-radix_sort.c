@@ -1,76 +1,35 @@
 #include "sort.h"
-
 /**
- * radix_sort - sort array with radix method
- * @array: array to sort
- * @size: size of the array
+ * radix_sort - sorts an array of integers in ascending
+ * order
  *
- * Return: nothing
-*/
-
+ * @array: input array
+ * @size: size of the array
+ */
 void radix_sort(int *array, size_t size)
 {
-	int i, j, x, y, cantRep, max, div = 1, t = 0;
-	int buckets[10][1000];
+	int flag = 1, n = 10;
+	size_t i, f;
 
-	if (!array || size < 2)
+	if (!array || size == 1)
 		return;
-
-	max = array[0];
-	for (i = 1; i < (int) size; i++)
-		if (array[i] > max)
-			max = array[i];
-
-	for (i = 0; i < 10; ++i)
-		for (j = 0; j < 1000; ++j)
-			buckets[i][j] = -1;
-
-	cantRep = getCantRep(max);
-
-	for (i = 0; i < cantRep; ++i)
+	while (flag)
 	{
-		for (j = 0; j < (int) size; ++j)
+		flag = 0;
+		for (i = 1, f = 1; i <  size; i++, f++)
 		{
-			for (y = 0; buckets[(array[j] / div) % 10][y] != -1; y++)
-				;
-			buckets[(array[j] / div) % 10][y] = array[j];
-		}
-		div = div * 10;
-		t = 0;
-		for (x = 0; x < 10; ++x)
-		{
-			for (y = 0; buckets[x][y] != -1; y++)
+			if ((array[i - 1] % (n * 10)) / ((n * 10) / 10) > 0)
+				flag = 1;
+			if (((array[i - 1] % n) / (n / 10)) > ((array[i] % n) / (n / 10)))
 			{
-				array[t] = buckets[x][y];
-				buckets[x][y] = -1;
-				t++;
+				array[i - 1] = array[i - 1] + array[i];
+				array[i] = array[i - 1] - array[i];
+				array[i - 1] = array[i - 1] - array[i];
+				if ((i - 1) > 0)
+					i = i - 2;
 			}
 		}
 		print_array(array, size);
+		n = n * 10;
 	}
-}
-
-/**
- * getCantRep - Returns the number of digits of the largest number in the array
- * @num: The largest number
- *
- * Return: Number of digits of the num
-*/
-
-int getCantRep(int num)
-{
-	bool flag = true;
-	int cont = 0;
-
-	while (flag)
-	{
-		flag = false;
-		if (num > 0)
-		{
-			num = num / 10;
-			cont++;
-			flag = true;
-		}
-	}
-	return (cont);
 }
