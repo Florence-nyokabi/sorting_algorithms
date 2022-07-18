@@ -1,8 +1,3 @@
-/*
- * File: 1-insertion_sort_list.c
- * Auth: Dagem Tsehay
- */
-
 #include "sort.h"
 
 /**
