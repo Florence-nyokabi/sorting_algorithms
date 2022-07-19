@@ -5,7 +5,8 @@
 
 #include "sort.h"
 #include <stdlib.h>
- 
+#include <stdio.h>
+
 /**
  * swap_nodes - Swap two nodes in a listint_t doubly-linked list.
  * @h: A pointer to the head of the doubly-linked list.
