@@ -1,53 +1,39 @@
-/*
- * File: 1-insertion_sort_list.c
- * Auth: Flo
- */
-
 #include "sort.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 /**
- * swap_nodes - Swap two nodes in a listint_t doubly-linked list.
- * @h: A pointer to the head of the doubly-linked list.
- * @n1: A pointer to the first node to swap.
- * @n2: The second node to swap.
- */
-void swap_nodes(listint_t **h, listint_t **n1, listint_t *n2)
-{
-	(*n1)->next = n2->next;
-	if (n2->next != NULL)
-		n2->next->prev = *n1;
-	n2->prev = (*n1)->prev;
-	n2->next = *n1;
-	if ((*n1)->prev != NULL)
-		(*n1)->prev->next = n2;
-	else
-		*h = n2;
-	(*n1)->prev = n2;
-	*n1 = n2->prev;
-}
-
-/**
- * insertion_sort_list - Sorts a doubly linked list of integers
- *                       using the insertion sort algorithm.
- * @list: A pointer to the head of a doubly-linked list of integers.
+ * insertion_sort_list - sorts a doubly linked list of integers in ascending
+ * order using the Insertion sort algorithm
+ * @list: Double pointer to the head of the linked list
+ *
+ * Return: void
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *iter, *insert, *tmp;
+	listint_t *swap_node, *next_swap;
 
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
+	if (list == NULL || *list == NULL)
 		return;
-
-	for (iter = (*list)->next; iter != NULL; iter = tmp)
+	swap_node = (*list)->next;
+	while (swap_node != NULL)
 	{
-		tmp = iter->next;
-		insert = iter->prev;
-		while (insert != NULL && iter->n < insert->n)
+		next_swap = swap_node->next;
+		if (swap_node->prev != NULL && swap_node->prev->n > swap_node->n)
 		{
-			swap_nodes(list, &insert, iter);
-			print_list((const listint_t *)*list);
+			swap_node->prev->next = swap_node->next;
+			if (swap_node->next != NULL)
+				swap_node->next->prev = swap_node->prev;
+			while (swap_node->prev != NULL && swap_node->prev->n > swap_node->n)
+			{
+				swap_node->next = swap_node->prev;
+				swap_node->prev = swap_node->prev->prev;
+			}
+			if (swap_node->prev == NULL)
+				*list = swap_node;
+			else
+				swap_node->prev->next = swap_node;
+			swap_node->next->prev = swap_node;
+			print_list(*list);
 		}
+		swap_node = next_swap;
 	}
 }
